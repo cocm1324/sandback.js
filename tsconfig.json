@@ -1,0 +1,29 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"module": "commonjs", 
+		"lib": ["es5", "es6"],
+		"declaration": false,
+		"declarationMap": false,
+		"sourceMap": true,
+		"outDir": "dist",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"baseUrl": "./",
+		"experimentalDecorators": true,
+		"typeRoots": [
+			"node_modules/@types"
+		],
+		"paths": {
+			"@src/*": ["src/*"],
+			"@models/*": ["src/models/*"]
+		}
+	},
+	"files": [
+		"src/main.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	]
+}

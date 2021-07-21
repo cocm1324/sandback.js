@@ -1,9 +1,0 @@
-# Dependencies
-node_modules
-
-# Secrets
-**/.env.*
-!environments/.env.example
-
-# misc
-package-lock.json

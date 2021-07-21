@@ -1,11 +1,11 @@
 import * as express from 'express';
 import { Request, Response, NextFunction } from 'express';
 
-import { InternalServerError } from '@src/errors';
-import { BaseError } from '@models/bases';
-import { Middleware } from '@models/types';
-import { RouterInfo } from '@models/interfaces';
-import { EndpointArgumentType, EndpointMethodType } from '@models/enums';
+import { InternalServerError } from '../errors';
+import { BaseError } from '../models/bases';
+import { Middleware } from '../models/types';
+import { RouterInfo } from '../models/interfaces';
+import { EndpointArgumentType, EndpointMethodType } from '../models/enums';
 
 const META_SUFFIX = ':meta';
 const DEFAULT_CONTEXT = '/';

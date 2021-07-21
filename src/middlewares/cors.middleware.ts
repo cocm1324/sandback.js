@@ -1,6 +1,6 @@
-import { Middleware } from '@src/models/types';
 import * as cors from 'cors';
 import { CorsOptions, CorsOptionsDelegate } from 'cors';
+import { Middleware } from '../models/types';
 
 export function useCors(options?: CorsOptions | CorsOptionsDelegate): Middleware {
     if (options) {

@@ -1,12 +1,12 @@
 import { Application } from 'express';
 import * as express from 'express';
 
-import { Middleware } from '@models/types';
-import { RouterInfo } from '@models/interfaces';
+import { Middleware } from '../models/types';
+import { RouterInfo } from '../models/interfaces';
 
 const DEFAULT_PORT = 3000;
 
-export type ExpressOptions = {
+export type SandbagOptions = {
     /**
      * 
      */
@@ -37,7 +37,7 @@ export type ExpressOptions = {
 }
 
 
-export function ExpressModule(options: ExpressOptions) {
+export function SandbagModule(options: SandbagOptions) {
     const _app: Application = express();
 
     const contextUsage = { };

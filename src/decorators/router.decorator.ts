@@ -234,9 +234,9 @@ function errorHandler(error, req: Request, res: Response, next: NextFunction) {
     } else {
         _error = new InternalServerError(error);
     }
-    const { code, message, data } = _error.getObject();
+    const { code, name, data } = _error.getObject();
     res.statusCode = code;
-    res.statusMessage = message;
+    res.statusMessage = name;
     res.send(data);
     return;
 }

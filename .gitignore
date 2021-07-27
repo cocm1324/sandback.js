@@ -10,3 +10,6 @@ package-lock.json
 
 # Build Output
 dist
+
+# package build test dir
+package-test

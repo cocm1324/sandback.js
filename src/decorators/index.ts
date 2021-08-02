@@ -1,2 +1,2 @@
-export * from './express.decorator';
+export * from './module';
 export * from './router.decorator';

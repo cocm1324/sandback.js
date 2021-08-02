@@ -1,4 +1,5 @@
 export class BaseError {
+    
     protected name: string;
     protected code: number;
 

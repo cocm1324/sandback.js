@@ -7,6 +7,7 @@ export enum EndpointMethodType {
 
 export enum EndpointArgumentType {
     REQ = 'REQ',
+    HEADERS = 'headers',
     BODY = 'body',
     PARAM = 'params',
     QUERY = 'query'

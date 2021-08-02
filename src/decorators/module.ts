@@ -37,7 +37,7 @@ export type SandbagOptions = {
 }
 
 
-export function SandbagModule(options: SandbagOptions) {
+export function Module(options: SandbagOptions) {
     const _app: Application = express();
 
     const contextUsage = { };
@@ -81,6 +81,8 @@ export function SandbagModule(options: SandbagOptions) {
      */
     if (options && options.useRouter && options.useRouter.length) {
         const routers = options.useRouter;
+
+        
 
         routers.forEach(element => {
             const { context, router: Router } = element;

@@ -23,9 +23,9 @@ export type RouterOptions = {
 }
 
 /**
- * @description RouterModule decorator provides NestJS style router definition. Class that decorated by this function can use Get, Post, Put, Delete decorator to its member function. Also, each parameters of those decorated memeber function can use Param, Query, Body, Req.
+ * @description Router decorator provides NestJS style router definition. Class that decorated by this function can use Get, Post, Put, Delete decorator to its member function. Also, each parameters of those decorated memeber function can use Param, Query, Body, Req.
  */
-export function RouterModule() {
+export function Router() {
     return function<T extends { new (...args: any[]): {} }>(constructor: T) {
         const _router = express.Router();
         const properties = Object.keys(constructor.prototype);
@@ -45,9 +45,6 @@ export function RouterModule() {
                     if (element === EndpointArgumentType.REQ) {
                         return req;
                     } else {
-
-                        
-
                         return req[element];
                     }
                 });
@@ -174,6 +171,14 @@ function registerMethodMetaProperty(target: any, metaPropertyKey: string, contex
 export function Param() {
     return function (target: any, propertyKey: string, argumentIndex: number) {
         const argumentType = EndpointArgumentType.PARAM;
+        const metaPropertyKey = `${propertyKey}${META_SUFFIX}`;
+        registerArgumentMetaPropertiy(target, metaPropertyKey, argumentType, argumentIndex);
+    }
+}
+
+export function Headers() {
+    return function (target: any, propertyKey: string, argumentIndex: number) {
+        const argumentType = EndpointArgumentType.HEADERS;
         const metaPropertyKey = `${propertyKey}${META_SUFFIX}`;
         registerArgumentMetaPropertiy(target, metaPropertyKey, argumentType, argumentIndex);
     }

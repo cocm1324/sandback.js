@@ -17,6 +17,6 @@ export function startServer(SandbagApp: any): Promise<any> {
 
 export class SandbagFactory {
     constructor() {
-        
+
     }
 }

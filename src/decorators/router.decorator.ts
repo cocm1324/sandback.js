@@ -1,5 +1,4 @@
 import { RouterMeta, RouterOptions } from '../models/interfaces';
-import { ClassType } from '../models/enums';
 import { CLASS_META_PROPERTY_KEY } from '../models/constants';
 
 
@@ -8,15 +7,20 @@ import { CLASS_META_PROPERTY_KEY } from '../models/constants';
  */
 export function Router(options?: RouterOptions) {
     return function<T extends { new (...args: any[]): {} }>(constructor: T) {
-        const type = ClassType.ROUTER;
 
         if (constructor.prototype.hasOwnProperty(CLASS_META_PROPERTY_KEY)) {
-            constructor.prototype[CLASS_META_PROPERTY_KEY].type = type;
             constructor.prototype[CLASS_META_PROPERTY_KEY].options = options;
         } else {
-            const value: RouterMeta = { type, options, middleware: [], errorHandler: [] };
+            const value: RouterMeta = { options, middleware: [], errorHandler: [] };
             Object.defineProperty(constructor.prototype, CLASS_META_PROPERTY_KEY, { value, enumerable: true, configurable: true });
         }
+
+        // const checkContext = (context: string) => {
+        //     if (context in contextUsage) {
+        //         throw `Express app cannot have duplicate context: '${context}'`;
+        //     }
+        //     contextUsage[context] = true;
+        // }
 
         return class extends constructor { }
     }
